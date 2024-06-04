@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\CountryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,12 +22,14 @@ use App\Http\Controllers\ServiceController;
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
+Route::get('/countries', [CountryController::class, 'listCountries']);
+
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/user', [UserController::class, 'index']);
     Route::put('/user', [UserController::class, 'update']);
 
-    Route::get('/companies', [CompanyController::class, 'index']);
+    Route::get('/companies', [CompanyController::class, 'company']);
     Route::post('/companies', [CompanyController::class, 'store']);
     Route::put('/companies/{company}', [CompanyController::class, 'update']);
     Route::delete('/companies/{company}', [CompanyController::class, 'destroy']);
@@ -37,4 +40,4 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/services/{service}', [ServiceController::class, 'destroy']);
 });
 
-Route::get('/public/companies', [CompanyController::class, 'publicIndex']);
+Route::get('/companies', [CompanyController::class, 'publicIndex']);

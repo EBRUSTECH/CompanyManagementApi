@@ -2,13 +2,30 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Foundation\Auth\User as AuthUser;
 use Illuminate\Http\Request;
+use App\Models\Country;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
 {
+     public function listCountries()
+    {
+        $countries = Country::all();
+
+         //dd($countries);
+
+        if ($countries->isEmpty()) {
+            return response()->json([
+                'message' => 'No country found'
+            ], 404);
+        }
+
+        return response()->json($countries);
+    }
+
     public function register(Request $request)
     {
         $validated = $request->validate([
@@ -16,7 +33,7 @@ class AuthController extends Controller
         'email' => 'required|string|email|max:255|unique:users',
         'mobile' => 'required|string|max:15|unique:users',
         'address' => 'required|string|max:255',
-        'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif',
         'country_id' => 'required|exists:countries,id',
         'password' => 'required|string|min:8|confirmed',
     ]);

@@ -4,12 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Country extends Model
 {
     use HasFactory;
-
-     protected $fillable = ['name'];
 
      /**
       * Get all of the users for the Country
@@ -18,7 +17,7 @@ class Country extends Model
       */
      public function users(): HasMany
      {
-         return $this->hasMany(User::class, 'user_id', 'id');
+         return $this->hasMany(User::class, 'country_id', 'id');
      }
 
      /**
@@ -28,7 +27,7 @@ class Country extends Model
       */
      public function companies(): HasMany
      {
-         return $this->hasMany(Company::class, 'company_id', 'id');
+         return $this->hasMany(Company::class, 'country_id', 'id');
      }
 
 }

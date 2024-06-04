@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Company extends Model
 {
@@ -30,6 +32,6 @@ class Company extends Model
      */
     public function services(): HasMany
     {
-        return $this->hasMany(service::class, 'service_id', 'id');
+        return $this->hasMany(service::class, 'company_id', 'id');
     }
 }

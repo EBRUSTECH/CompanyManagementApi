@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Company;
 use Illuminate\Http\Request;
+use App\Models\Company;
 use Illuminate\Support\Facades\Auth;
 
 class CompanyController extends Controller
 {
-    public function index()
+    public function company()
     {
         $companies = Auth::user()->companies;
         return response()->json($companies);
