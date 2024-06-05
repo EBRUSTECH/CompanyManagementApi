@@ -8,6 +8,14 @@ use Illuminate\Support\Facades\Auth;
 
 class ServiceController extends Controller
 {
+    public function index()
+    {
+        $user = Auth::user();
+        $companies = $user->companies->pluck('id');
+        $services = Service::whereIn('company_id', $companies)->get();
+        return response()->json($services);
+    }
+    
     public function store(Request $request)
     {
         $validated = $request->validate([

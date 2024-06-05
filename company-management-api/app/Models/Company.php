@@ -12,7 +12,7 @@ class Company extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id', 'company_name', 'company_email', 'country_id'
+        'company_name', 'company_email', 'country_id'
     ];
 
     /**
@@ -32,6 +32,6 @@ class Company extends Model
      */
     public function services(): HasMany
     {
-        return $this->hasMany(service::class, 'company_id', 'id');
+        return $this->hasMany(Service::class);
     }
 }

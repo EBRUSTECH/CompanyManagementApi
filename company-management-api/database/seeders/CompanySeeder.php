@@ -13,10 +13,10 @@ class CompanySeeder extends Seeder
      */
     public function run(): void
     {
-           $companies = [
+        $companies = [
             [
                 'user_id' => '1',
-                'company_name' => 'Sahel Food LTD',
+                'company_name' => 'Sahel LTD',
                 'company_email' => 'sahel@example.com',
                 'country_id' => '1',
                 'created_at' => now(),
@@ -27,6 +27,14 @@ class CompanySeeder extends Seeder
                 'company_name' => 'Food Co LTD',
                 'company_email' => 'foodco@example.com',
                 'country_id' => '2',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'user_id' => '3',
+                'company_name' => 'AgriCorp International',
+                'company_email' => 'agricorp@example.com',
+                'country_id' => '3',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

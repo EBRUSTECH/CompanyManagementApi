@@ -56,12 +56,16 @@ export default {
         const response = await apiClient.post("/login", {
           email: this.email,
           password: this.password,
-          error: null,
         });
         localStorage.setItem("token", response.data.token);
+
+        // Update isAuthenticated status in the component
+        this.isAuthenticated = true;
+
         this.$router.push("/dashboard");
       } catch (error) {
         console.error(error);
+        this.error = "An error occurred while logging in. Please try again.";
       }
     },
   },

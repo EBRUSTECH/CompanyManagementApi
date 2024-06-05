@@ -29,13 +29,27 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $validated = $request->validate([
-        'full_name' => 'required|string|max:255',
+        'full_name' => 'required|string|min:6|max:255',
         'email' => 'required|string|email|max:255|unique:users',
+        'email' => [
+            'required',
+            'string',
+            'email',
+            'max:255',
+            'unique:users',
+            'regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/'
+        ],
         'mobile' => 'required|string|max:15|unique:users',
         'address' => 'required|string|max:255',
         'image' => 'required|image|mimes:jpeg,png,jpg,gif',
         'country_id' => 'required|exists:countries,id',
-        'password' => 'required|string|min:8|confirmed',
+        'password' => [
+        'required',
+        'string',
+        'min:8',
+        'confirmed',
+        'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?&.]{8,}$/'
+],
     ]);
 
     try {

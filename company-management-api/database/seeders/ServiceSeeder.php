@@ -38,6 +38,42 @@ class ServiceSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now()
             ],
+            [
+                'company_id' => 3,
+                'name' => 'Graphic Design',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'company_id' => 3,
+                'name' => 'Social Media Management',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'company_id' => 1,
+                'name' => 'App Development',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'company_id' => 2,
+                'name' => 'Email Marketing',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'company_id' => 3,
+                'name' => 'Brand Strategy',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'company_id' => 1,
+                'name' => 'IT Consulting',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
         ];
 
         DB::table('services')->insert($services);

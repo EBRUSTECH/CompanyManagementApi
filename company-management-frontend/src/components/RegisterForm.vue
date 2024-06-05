@@ -28,31 +28,7 @@
                 required
               />
             </div>
-
-            <div class="form-group mb-3">
-              <label for="password">Password</label>
-              <input
-                type="password"
-                class="form-control"
-                id="password"
-                v-model="password"
-                placeholder="Password"
-                required
-              />
-            </div>
-
-            <div class="form-group mb-3">
-              <label for="passwordConfirmation">Confirm Password</label>
-              <input
-                type="password"
-                class="form-control"
-                id="passwordConfirmation"
-                v-model="password_confirmation"
-                placeholder="Confirm Password"
-                required
-              />
-            </div>
-
+            
             <div class="form-group mb-3">
               <label for="mobile">Mobile</label>
               <input
@@ -103,6 +79,30 @@
                 class="form-control-file"
                 id="image"
                 @change="onFileChange"
+              />
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                v-model="password"
+                placeholder="Password"
+                required
+              />
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="passwordConfirmation">Confirm Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="passwordConfirmation"
+                v-model="password_confirmation"
+                placeholder="Confirm Password"
+                required
               />
             </div>
 
